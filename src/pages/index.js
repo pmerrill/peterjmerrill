@@ -135,7 +135,7 @@ const RenderBody = ({ home, projects, meta }) => (
         />
         <Hero>
             <>
-                {RichText.render(home.hero_title)}
+                {RichText.render(home.hero_title)} {RichText.render(home.content)}
             </>
             <a href={home.hero_button_link.url}
                target="_blank" rel="noopener noreferrer">

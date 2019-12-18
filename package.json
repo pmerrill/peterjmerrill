@@ -37,8 +37,10 @@
     "smooth-scroll": "^16.0.3"
   },
   "devDependencies": {
+    "cypress": "^3.8.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "start-server-and-test": "^1.10.6"
   },
   "keywords": [
     "gatsby",
@@ -53,7 +55,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http-get://localhost:8000 cy:run"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Prist | Gatsby & Prismic Starter`,
-        description: `A starter powered by Gatsby and Prismic to showcase portfolios and blogs.`,
-    author: `Marguerite Roth | marguerite.io`,
+    title: `Peter Merrill | Full Stack Developer`,
+        description: `Peter Merrill's personal website with projects, work experience, and more.`,
+        author: `Peter Merrill | PeterJMerrill.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,7 +26,7 @@ module.exports = {
     {
         resolve: 'gatsby-source-prismic-graphql',
         options: {
-            repositoryName: 'prist', // (REQUIRED, replace with your own)
+            repositoryName: 'PeterJMerrill',
             linkResolver: () => post => `/${post.uid}`,
         }
     },
@@ -46,7 +46,7 @@ module.exports = {
     {
         resolve: `gatsby-plugin-google-analytics`,
         options: {
-            trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
+            trackingId: "UA-77421594-10",
             head: true,
         },
     },

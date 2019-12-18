@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
-import Logo from "components/_ui/Logo";
+//import Logo from "components/_ui/Logo";
 
 const HeaderContainer = styled("div")`
     padding-top: 3.75em;
@@ -13,6 +13,19 @@ const HeaderContainer = styled("div")`
 const HeaderContent = styled("div")`
     display: flex;
     justify-content: space-between;
+
+    a.Link--is-logo {
+        color: ${colors.blue500};
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        font-weight: 600;
+        font-size: 1.45em;
+        height: 100%;
+        padding-bottom: 0em;
+        padding-top: 0em;
+        display: block;
+        position: relative;
+    }
 `
 
 const HeaderLinks = styled("div")`
@@ -75,8 +88,8 @@ const HeaderLinks = styled("div")`
 const Header = () => (
     <HeaderContainer>
         <HeaderContent>
-            <Link to="/">
-                <Logo/>
+            <Link activeClassName="Link--is-logo" to="/">
+                Peter Merrill
             </Link>
             <HeaderLinks>
                 <Link
