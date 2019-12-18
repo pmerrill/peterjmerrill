@@ -52,18 +52,33 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
     )
 
+    const workList = result.data.prismic.allProjects.edges;
     const projectsList = result.data.prismic.allProjects.edges;
     const postsList = result.data.prismic.allPosts.edges;
 
     const projectTemplate = require.resolve('./src/templates/project.jsx');
     const postTemplate = require.resolve('./src/templates/post.jsx');
 
+    workList.forEach(edge => {
+        // The uid you assigned in Prismic is the slug!
+        createPage({
+            type: 'Work',
+            match: '/work/:uid',
+            path: `/work/${edge.node._meta.uid}`,
+            component: projectTemplate,
+            context: {
+                // Pass the unique ID (uid) through context so the template can filter by it
+                uid: edge.node._meta.uid,
+            },
+        })
+    })
+
     projectsList.forEach(edge => {
         // The uid you assigned in Prismic is the slug!
         createPage({
             type: 'Project',
-            match: '/work/:uid',
-            path: `/work/${edge.node._meta.uid}`,
+            match: '/projects/:uid',
+            path: `/projects/${edge.node._meta.uid}`,
             component: projectTemplate,
             context: {
                 // Pass the unique ID (uid) through context so the template can filter by it

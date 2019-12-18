@@ -6,6 +6,7 @@ import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
+import Avatar from "images/avatar.jpg";
 import Button from "components/_ui/Button";
 import About from "components/About";
 import Layout from "components/Layout";
@@ -15,37 +16,42 @@ const Hero = styled("div")`
     padding-top: 2.5em;
     padding-bottom: 3em;
     margin-bottom: 6em;
-    max-width: 830px;
+    max-width: 100%;
 
     @media(max-width:${dimensions.maxwidthMobile}px) {
        margin-bottom: 3em;
     }
 
     h1 {
+        font-size: 2.6em;
         margin-bottom: 1em;
 
         a {
             text-decoration: none;
             transition: all 100ms ease-in-out;
 
-            &:nth-of-type(1) { color: ${colors.blue500}; }
-            &:nth-of-type(2) { color: ${colors.orange500}; }
+            &:nth-of-type(1) { color: ${colors.orange500}; }
+            &:nth-of-type(2) { color: ${colors.green500}; }
             &:nth-of-type(3) { color: ${colors.purple500}; }
-            &:nth-of-type(4) { color: ${colors.green500}; }
-            &:nth-of-type(5) { color: ${colors.teal500}; }
+            &:nth-of-type(4) { color: ${colors.teal500}; }
+            &:nth-of-type(5) { color: ${colors.blue500}; }
 
             &:hover {
                 cursor: pointer;
                 transition: all 100ms ease-in-out;
 
-                &:nth-of-type(1) { color: ${colors.blue600};    background-color: ${colors.blue200};}
-                &:nth-of-type(2) { color: ${colors.orange600};  background-color: ${colors.orange200};}
+                &:nth-of-type(1) { color: ${colors.orange600};  background-color: ${colors.orange200};}
+                &:nth-of-type(2) { color: ${colors.green600};   background-color: ${colors.green200};}
                 &:nth-of-type(3) { color: ${colors.purple600};  background-color: ${colors.purple200};}
-                &:nth-of-type(4) { color: ${colors.green600};   background-color: ${colors.green200};}
-                &:nth-of-type(5) { color: ${colors.teal600};    background-color: ${colors.teal200};}
+                &:nth-of-type(4) { color: ${colors.teal600};    background-color: ${colors.teal200};}
+                &:nth-of-type(5) { color: ${colors.blue600};    background-color: ${colors.blue200};}
 
             }
         }
+    }
+
+    div.AvatarContainer {
+        border-bottom: 4px solid #4a4f49;
     }
 `
 
@@ -93,6 +99,12 @@ const WorkAction = styled(Link)`
     }
 `
 
+const HeroAvatar = styled("img")`
+    max-width: 100px;
+    margin-top: 0em;
+    display: block;
+`
+
 const RenderBody = ({ home, projects, meta }) => (
     <>
         <Helmet
@@ -134,6 +146,9 @@ const RenderBody = ({ home, projects, meta }) => (
             ].concat(meta)}
         />
         <Hero>
+            <div className="AvatarContainer">
+                <HeroAvatar className="HeroAvatar" src={Avatar} />
+            </div>
             <>
                 {RichText.render(home.hero_title)} {RichText.render(home.content)}
             </>

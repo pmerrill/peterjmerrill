@@ -13,8 +13,8 @@ const WorkTitle = styled("h1")`
 const Work = ({ projects, meta }) => (
     <>
         <Helmet
-            title={`Work | Peter Merrill`}
-            titleTemplate={`%s | Work | Peter Merrill`}
+            title={`Projects | Peter Merrill`}
+            titleTemplate={`%s | Projects | Peter Merrill`}
             meta={[
                 {
                     name: `description`,
@@ -22,7 +22,7 @@ const Work = ({ projects, meta }) => (
                 },
                 {
                     property: `og:title`,
-                    content: `Work | Peter Merrill`,
+                    content: `Projects | Peter Merrill`,
                 },
                 {
                     property: `og:description`,
@@ -52,7 +52,7 @@ const Work = ({ projects, meta }) => (
         />
         <Layout>
             <WorkTitle>
-                Work
+                Projects
             </WorkTitle>
             <>
                 {projects.map((project, i) => (
@@ -87,7 +87,7 @@ Work.propTypes = {
 export const query = graphql`
     {
         prismic {
-            allProjects(where: {project_category_fulltext: "work"}) {
+            allProjects(where: {project_category_fulltext: "project"}) {
                 edges {
                     node {
                         project_title

@@ -3,7 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 //import Logo from "components/_ui/Logo";
-//import spooch from "images/oscar-icon.png"
+import Avatar from "images/avatar.jpg";
 
 const FooterContainer = styled("div")`
     padding-top: 3.75em;
@@ -26,20 +26,33 @@ const FooterAuthor = styled("a")`
     text-decoration: none;
     margin-top: 1.5em;
 
-     &:hover {
-         color: ${colors.blue900};
-    }
+    &:hover {
+        color: ${colors.blue900};
 
-    @keyframes rotate {
-        from {transform: rotate(0deg);}
-        to {transform: rotate(360deg);}
-    }
+       .FooterAvatar {
+           animation-name: rotate;
+           animation-duration: 1.5s;
+           animation-iteration-count: infinite;
+           animation-timing-function: linear;
+       }
+   }
+
+   @keyframes rotate {
+       from {transform: rotate(0deg);}
+       to {transform: rotate(360deg);}
+   }
+`
+
+const FooterAvatar = styled("img")`
+    max-width: 33px;
+    margin-top: 0.25em;
 `
 
 const Footer = () => (
     <FooterContainer>
         <FooterAuthor href="/">
             © 2019 — Peter Merrill
+            <FooterAvatar className="FooterAvatar" src={Avatar} />
         </FooterAuthor>
     </FooterContainer>
 )
