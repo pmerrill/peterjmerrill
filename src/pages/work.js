@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "components/Layout";
-import ProjectCard from "components/ProjectCard";
+import WorkCard from "components/WorkCard";
 
 const WorkTitle = styled("h1")`
     margin-bottom: 1em;
@@ -56,11 +56,20 @@ const Work = ({ projects, meta }) => (
             </WorkTitle>
             <>
                 {projects.map((project, i) => (
-                    <ProjectCard
+                    <WorkCard
                         key={i}
                         category={project.node.project_category}
                         title={project.node.project_title}
+                        company={project.node.project_company}
+                        start_date={project.node.project_start_date}
+                        end_date={project.node.project_end_date}
+                        location={project.node.project_location}
+                        website={project.node.project_website}
                         description={project.node.project_preview_description}
+                        languages={project.node.project_languages}
+                        frameworks={project.node.project_frameworks}
+                        libraries={project.node.project_libraries}
+                        software={project.node.project_software}
                         thumbnail={project.node.project_preview_thumbnail}
                         uid={project.node._meta.uid}
                     />
@@ -94,6 +103,15 @@ export const query = graphql`
                         project_preview_description
                         project_preview_thumbnail
                         project_category
+                        project_company
+                        project_start_date
+                        project_end_date
+                        project_location
+                        project_website
+                        project_languages
+                        project_frameworks
+                        project_libraries
+                        project_software
                         project_post_date
                         _meta {
                             uid

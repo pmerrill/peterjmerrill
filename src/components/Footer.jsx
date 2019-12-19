@@ -25,6 +25,7 @@ const FooterAuthor = styled("a")`
     align-items: center;
     text-decoration: none;
     margin-top: 1.5em;
+    text-align: center;
 
     &:hover {
         color: ${colors.blue900};
@@ -52,6 +53,7 @@ const Footer = () => (
     <FooterContainer>
         <FooterAuthor href="/">
             © 2019 — Peter Merrill
+            <br/>Built using Gatsby on React. Tested using Cypress. Verisioning on GitHub. Deployed to Firebase.
             <FooterAvatar className="FooterAvatar" src={Avatar} />
         </FooterAuthor>
     </FooterContainer>

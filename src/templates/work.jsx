@@ -156,9 +156,9 @@ const Project = ({ project, meta }) => {
                 <ProjectSoftware>
                   {project.project_software[0].text}
                 </ProjectSoftware>
-                <WorkLink to={"/projects"}>
+                <WorkLink to={"/work"}>
                     <Button className="Button--secondary">
-                        See other projects
+                        See other work
                     </Button>
                 </WorkLink>
             </Layout>
@@ -179,7 +179,7 @@ Project.propTypes = {
 };
 
 export const query = graphql`
-    query ProjectQuery($uid: String) {
+    query WorkQuery($uid: String) {
         prismic {
             allProjects(uid: $uid) {
                 edges {

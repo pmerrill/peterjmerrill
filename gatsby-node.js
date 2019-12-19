@@ -24,6 +24,15 @@ exports.createPages = async ({ graphql, actions }) => {
                             project_preview_thumbnail
                             project_category
                             project_post_date
+                            project_company
+                            project_start_date
+                            project_end_date
+                            project_location
+                            project_website
+                            project_languages
+                            project_frameworks
+                            project_libraries
+                            project_software
                             _meta {
                                 uid
                             }
@@ -56,6 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const projectsList = result.data.prismic.allProjects.edges;
     const postsList = result.data.prismic.allPosts.edges;
 
+    const workTemplate = require.resolve('./src/templates/work.jsx');
     const projectTemplate = require.resolve('./src/templates/project.jsx');
     const postTemplate = require.resolve('./src/templates/post.jsx');
 
@@ -65,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
             type: 'Work',
             match: '/work/:uid',
             path: `/work/${edge.node._meta.uid}`,
-            component: projectTemplate,
+            component: workTemplate,
             context: {
                 // Pass the unique ID (uid) through context so the template can filter by it
                 uid: edge.node._meta.uid,
