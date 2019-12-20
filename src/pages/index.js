@@ -50,6 +50,10 @@ const Hero = styled("div")`
         }
     }
 
+    a.rightLink {
+        margin-left: 1.5em;
+    }
+
     div.AvatarContainer {
         border-bottom: 4px solid #4a4f49;
     }
@@ -152,12 +156,16 @@ const RenderBody = ({ home, projects, meta }) => (
             <>
                 {RichText.render(home.hero_title)} {RichText.render(home.content)}
             </>
-            <a href={home.hero_button_link.url}
-               target="_blank" rel="noopener noreferrer">
+            <Link to={"/work"}>
                 <Button>
-                    {RichText.render(home.hero_button_text)}
+                    <p>Work</p>
                 </Button>
-            </a>
+            </Link>
+            <Link to={"/projects"} className="rightLink">
+                <Button>
+                    <p>Projects</p>
+                </Button>
+            </Link>
         </Hero>
         <Section>
             {projects.map((project, i) => (

@@ -4,17 +4,17 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "components/Layout";
-import WorkCard from "components/WorkCard";
+import ProjectCard from "components/WorkCard";
 
-const WorkTitle = styled("h1")`
+const ProjectTitle = styled("h1")`
     margin-bottom: 1em;
 `
 
-const Work = ({ projects, meta }) => (
+const Project = ({ projects, meta }) => (
     <>
         <Helmet
             title={`Work | Peter Merrill`}
-            titleTemplate={`%s | Work | Peter Merrill`}
+            titleTemplate={`%s`}
             meta={[
                 {
                     name: `description`,
@@ -51,12 +51,12 @@ const Work = ({ projects, meta }) => (
             ].concat(meta)}
         />
         <Layout>
-            <WorkTitle>
+            <ProjectTitle>
                 Work
-            </WorkTitle>
+            </ProjectTitle>
             <>
                 {projects.map((project, i) => (
-                    <WorkCard
+                    <ProjectCard
                         key={i}
                         category={project.node.project_category}
                         title={project.node.project_title}
@@ -85,11 +85,11 @@ export default ({ data }) => {
     if (!projects) return null;
 
     return (
-        <Work projects={projects} meta={meta}/>
+        <Project projects={projects} meta={meta}/>
     )
 }
 
-Work.propTypes = {
+Project.propTypes = {
     projects: PropTypes.array.isRequired,
 };
 

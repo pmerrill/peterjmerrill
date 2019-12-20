@@ -6,15 +6,15 @@ import styled from "@emotion/styled";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 
-const WorkTitle = styled("h1")`
+const ProjectTitle = styled("h1")`
     margin-bottom: 1em;
 `
 
-const Work = ({ projects, meta }) => (
+const Project = ({ projects, meta }) => (
     <>
         <Helmet
             title={`Projects | Peter Merrill`}
-            titleTemplate={`%s | Projects | Peter Merrill`}
+            titleTemplate={`%s`}
             meta={[
                 {
                     name: `description`,
@@ -51,9 +51,9 @@ const Work = ({ projects, meta }) => (
             ].concat(meta)}
         />
         <Layout>
-            <WorkTitle>
+            <ProjectTitle>
                 Projects
-            </WorkTitle>
+            </ProjectTitle>
             <>
                 {projects.map((project, i) => (
                     <ProjectCard
@@ -76,11 +76,11 @@ export default ({ data }) => {
     if (!projects) return null;
 
     return (
-        <Work projects={projects} meta={meta}/>
+        <Project projects={projects} meta={meta}/>
     )
 }
 
-Work.propTypes = {
+Project.propTypes = {
     projects: PropTypes.array.isRequired,
 };
 

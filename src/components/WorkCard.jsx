@@ -177,7 +177,7 @@ const WorkCard = ({ category, title, company, start_date, end_date, location, de
                 {company[0].text}
             </WorkCardCompany>
             <WorkCardStartEndDate>
-                {start_date} - {end_date}
+                {start_date[0].text} - {end_date[0].text}
             </WorkCardStartEndDate>
             <WorkCardLocation>
                 {location[0].text}

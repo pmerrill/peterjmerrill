@@ -58,18 +58,34 @@ const ProjectBody = styled("div")`
 
 const ProjectLanguages = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectFrameworks = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectLibraries = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectSoftware = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const WorkLink = styled(Link)`
@@ -125,36 +141,41 @@ const Project = ({ project, meta }) => {
                     {RichText.render(project.project_title)}
                 </ProjectTitle>
                 <ProjectCompany>
-                    {RichText.render(project.project_company)}
+                    <h2 className="title">{project.project_company[0].text}</h2>
                 </ProjectCompany>
                 <ProjectStartEndDate>
-                    {project.project_start_date} - {project.project_end_date}
+                    {RichText.render(project.project_start_date)} - {RichText.render(project.project_end_date)}
                 </ProjectStartEndDate>
                 <ProjectLocation>
                   {project.project_location[0].text}
                 </ProjectLocation>
                 <ProjectWebsite>
-                  {project.project_website[0].text}
+                  <a href={project.project_website[0].text} target="_blank" rel="noopener noreferrer">{project.project_website[0].text}</a>
                 </ProjectWebsite>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
-                        <img src={project.project_hero_image.url} alt="bees" />
+                        <img src={project.project_hero_image.url} alt={project.project_title} />
                     </ProjectHeroContainer>
                 )}
                 <ProjectBody>
+                    <h3 className="title">Details</h3>
                     {RichText.render(project.project_description)}
                 </ProjectBody>
                 <ProjectLanguages>
-                  {project.project_languages[0].text}
+                    <h4 className="title">Languages</h4>
+                    {RichText.render(project.project_languages)}
                 </ProjectLanguages>
                 <ProjectFrameworks>
-                  {project.project_frameworks[0].text}
+                    <h4 className="title">Frameworks</h4>
+                    {RichText.render(project.project_frameworks)}
                 </ProjectFrameworks>
                 <ProjectLibraries>
-                  {project.project_libraries[0].text}
+                    <h4 className="title">Libraries</h4>
+                    {RichText.render(project.project_libraries)}
                 </ProjectLibraries>
                 <ProjectSoftware>
-                  {project.project_software[0].text}
+                    <h4 className="title">Software</h4>
+                    {RichText.render(project.project_software)}
                 </ProjectSoftware>
                 <WorkLink to={"/work"}>
                     <Button className="Button--secondary">

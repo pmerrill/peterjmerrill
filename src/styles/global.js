@@ -35,6 +35,29 @@ const globalStyles = css`
         }
     }
 
+    a {
+        color: ${colors.blue500};
+        text-decoration: none;
+    }
+
+    h1 {
+        margin-bottom: 0.5em;
+    }
+
+    h2.title {
+        margin-top: 0;
+    }
+
+    h3.title {
+        color: #4a4f49;
+        border-bottom: 4px solid #4a4f49;
+    }
+
+    h4 {
+          color: #4a4f49;
+          margin-bottom: 0;
+      }
+
     /*
     A workaround for forcing accessibility wrappers
     to have a 100% height.

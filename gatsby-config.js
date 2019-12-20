@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Peter Merrill | Full Stack Developer`,
+    title: `Peter Merrill | Software Engineer | Madison, WI`,
         description: `Peter Merrill's personal website with projects, work experience, and more.`,
         author: `Peter Merrill | PeterJMerrill.com`,
   },
