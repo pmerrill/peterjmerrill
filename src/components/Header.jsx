@@ -102,6 +102,9 @@ const Header = () => (
                     to="/projects">
                     Projects
                 </Link>
+                <a href="https://prismic-io.s3.amazonaws.com/peterjmerrill/4931312d-e601-450b-ba8e-51cf31d595a6_Peter-Merrill%281%29.pdf" target="_blank" rel="noopener noreferrer">
+                  Résumé
+                </a>
             </HeaderLinks>
         </HeaderContent>
     </HeaderContainer>

@@ -167,7 +167,7 @@ const WorkCardImageContainer = styled("div")`
     }
 `
 
-const WorkCard = ({ category, title, company, start_date, end_date, location, description, thumbnail, uid}) => (
+const WorkCard = ({ category, title, company, start_date, location, description, thumbnail, uid}) => (
     <WorkCardContainer to={`/work/${uid}`}>
         <WorkCardContent className="WorkCardContent">
             <WorkCardTitle>
@@ -177,7 +177,7 @@ const WorkCard = ({ category, title, company, start_date, end_date, location, de
                 {company[0].text}
             </WorkCardCompany>
             <WorkCardStartEndDate>
-                {start_date[0].text} - {end_date[0].text}
+                {start_date[0].text}
             </WorkCardStartEndDate>
             <WorkCardLocation>
                 {location[0].text}
@@ -203,7 +203,6 @@ WorkCard.propTypes = {
     title: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
     start_date: PropTypes.array.isRequired,
-    end_date: PropTypes.array.isRequired,
     location: PropTypes.array.isRequired,
     description: PropTypes.array.isRequired,
     uid: PropTypes.string.isRequired

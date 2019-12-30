@@ -16,6 +16,7 @@ const ProjectHeroContainer = styled("div")`
     overflow: hidden;
     position: relative;
     padding-top: 2.25em;
+    margin-top: 0.75em;
     margin-bottom: 3.5em;
 
     img {
@@ -29,10 +30,18 @@ const ProjectTitle = styled("div") `
 
 const ProjectCompany = styled("div") `
     max-width: 100%;
+
+    h2 {
+      margin-bottom: 0;
+    }
 `
 
 const ProjectStartEndDate = styled("div") `
     max-width: 100%;
+
+    p {
+      margin-bottom: 0;
+    }
 `
 
 const ProjectLocation = styled("div") `
@@ -58,18 +67,34 @@ const ProjectBody = styled("div")`
 
 const ProjectLanguages = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectFrameworks = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectLibraries = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const ProjectSoftware = styled("div") `
     max-width: 100%;
+
+    p {
+        margin-top: 0.4em;
+    }
 `
 
 const WorkLink = styled(Link)`
@@ -83,8 +108,8 @@ const Project = ({ project, meta }) => {
     return (
         <>
             <Helmet
-                title={`${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`}
-                titleTemplate={`%s | ${meta.title}`}
+                title={`${project.project_title[0].text}`}
+                titleTemplate={`%s`}
                 meta={[
                     {
                         name: `description`,
@@ -92,7 +117,7 @@ const Project = ({ project, meta }) => {
                     },
                     {
                         property: `og:title`,
-                        content: `${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`,
+                        content: `${project.project_title[0].text}`,
                     },
                     {
                         property: `og:description`,
@@ -125,16 +150,16 @@ const Project = ({ project, meta }) => {
                     {RichText.render(project.project_title)}
                 </ProjectTitle>
                 <ProjectCompany>
-                    {RichText.render(project.project_company)}
+                    <h2 className="title">{project.project_company[0].text}</h2>
                 </ProjectCompany>
                 <ProjectStartEndDate>
-                    {project.project_start_date} - {project.project_end_date}
+                    {RichText.render(project.project_start_date)}
                 </ProjectStartEndDate>
                 <ProjectLocation>
                   {project.project_location[0].text}
                 </ProjectLocation>
                 <ProjectWebsite>
-                  {project.project_website[0].text}
+                  <a href={project.project_website[0].text} target="_blank" rel="noopener noreferrer">{project.project_website[0].text}</a>
                 </ProjectWebsite>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
@@ -145,16 +170,20 @@ const Project = ({ project, meta }) => {
                     {RichText.render(project.project_description)}
                 </ProjectBody>
                 <ProjectLanguages>
-                  {project.project_languages[0].text}
+                    <h4 className="title">Languages</h4>
+                    {RichText.render(project.project_languages)}
                 </ProjectLanguages>
                 <ProjectFrameworks>
-                  {project.project_frameworks[0].text}
+                    <h4 className="title">Frameworks</h4>
+                    {RichText.render(project.project_frameworks)}
                 </ProjectFrameworks>
                 <ProjectLibraries>
-                  {project.project_libraries[0].text}
+                    <h4 className="title">Libraries</h4>
+                    {RichText.render(project.project_libraries)}
                 </ProjectLibraries>
                 <ProjectSoftware>
-                  {project.project_software[0].text}
+                    <h4 className="title">Software</h4>
+                    {RichText.render(project.project_software)}
                 </ProjectSoftware>
                 <WorkLink to={"/projects"}>
                     <Button className="Button--secondary">
@@ -193,7 +222,6 @@ export const query = graphql`
                         project_description
                         project_company
                         project_start_date
-                        project_end_date
                         project_location
                         project_website
                         project_languages

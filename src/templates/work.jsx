@@ -16,6 +16,7 @@ const ProjectHeroContainer = styled("div")`
     overflow: hidden;
     position: relative;
     padding-top: 2.25em;
+    margin-top: 0.75em;
     margin-bottom: 3.5em;
 
     img {
@@ -29,10 +30,18 @@ const ProjectTitle = styled("div") `
 
 const ProjectCompany = styled("div") `
     max-width: 100%;
+
+    h2 {
+      margin-bottom: 0;
+    }
 `
 
 const ProjectStartEndDate = styled("div") `
     max-width: 100%;
+
+    p {
+      margin-bottom: 0;
+    }
 `
 
 const ProjectLocation = styled("div") `
@@ -99,8 +108,8 @@ const Project = ({ project, meta }) => {
     return (
         <>
             <Helmet
-                title={`${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`}
-                titleTemplate={`%s | ${meta.title}`}
+                title={`${project.project_title[0].text}`}
+                titleTemplate={`%s`}
                 meta={[
                     {
                         name: `description`,
@@ -108,7 +117,7 @@ const Project = ({ project, meta }) => {
                     },
                     {
                         property: `og:title`,
-                        content: `${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`,
+                        content: `${project.project_title[0].text}`,
                     },
                     {
                         property: `og:description`,
@@ -144,7 +153,7 @@ const Project = ({ project, meta }) => {
                     <h2 className="title">{project.project_company[0].text}</h2>
                 </ProjectCompany>
                 <ProjectStartEndDate>
-                    {RichText.render(project.project_start_date)} - {RichText.render(project.project_end_date)}
+                    {RichText.render(project.project_start_date)}
                 </ProjectStartEndDate>
                 <ProjectLocation>
                   {project.project_location[0].text}
@@ -214,7 +223,6 @@ export const query = graphql`
                         project_description
                         project_company
                         project_start_date
-                        project_end_date
                         project_location
                         project_website
                         project_languages

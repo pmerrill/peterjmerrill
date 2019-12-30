@@ -62,7 +62,6 @@ const Project = ({ projects, meta }) => (
                         title={project.node.project_title}
                         company={project.node.project_company}
                         start_date={project.node.project_start_date}
-                        end_date={project.node.project_end_date}
                         location={project.node.project_location}
                         website={project.node.project_website}
                         description={project.node.project_preview_description}
@@ -105,7 +104,6 @@ export const query = graphql`
                         project_category
                         project_company
                         project_start_date
-                        project_end_date
                         project_location
                         project_website
                         project_languages
