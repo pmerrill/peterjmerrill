@@ -7,7 +7,6 @@ import styled from "@emotion/styled";
 import colors from "styles/colors";
 import dimensions from "styles/dimensions";
 import Avatar from "images/avatar.jpg";
-import Button from "components/_ui/Button";
 import Layout from "components/Layout";
 
 const Hero = styled("div")`
@@ -106,11 +105,6 @@ const RenderBody = ({ home, meta }) => (
             <>
                 {RichText.render(home.hero_title)} {RichText.render(home.content)}
             </>
-            <a href="https://github.com/pmerrill" target="_blank" rel="noopener noreferrer">
-                <Button>
-                    <p>My Repositories</p>
-                </Button>
-            </a>
         </Hero>
     </>
 );
