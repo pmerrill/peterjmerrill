@@ -13,8 +13,9 @@ const HeaderContainer = styled("div")`
 const HeaderContent = styled("div")`
     display: flex;
     justify-content: space-between;
+    font-weight: 600;
 
-    a.Link--is-logo {
+    a,a.Link--is-logo {
         color: ${colors.blue500};
         text-decoration: none;
         border-bottom: 3px solid transparent;
@@ -35,6 +36,7 @@ const HeaderLinks = styled("div")`
     justify-content: flex-end;
     width: 100%;
     max-width: 200px;
+    font-size: 0.95em;
 
     @media(max-width: ${dimensions.maxwidthTablet}px) {
         grid-gap: 5.5em;

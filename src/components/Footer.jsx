@@ -53,7 +53,7 @@ const Footer = () => (
     <FooterContainer>
         <FooterAuthor href="/">
             © 2019 — Peter Merrill
-            <br/>Built using Gatsby on React. Tested using Cypress. Verisioning on GitHub. Deployed to Firebase.
+            <br/>Built with Gatsby, React, Cypress, GitHub, and Firebase.
             <FooterAvatar className="FooterAvatar" src={Avatar} />
         </FooterAuthor>
     </FooterContainer>
